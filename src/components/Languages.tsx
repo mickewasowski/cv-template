@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { LanguageLevel, type Language } from "./types/Types";
+import { LanguageLevel, type Language } from "../types/Types";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";

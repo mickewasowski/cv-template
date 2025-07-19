@@ -1,12 +1,16 @@
-import Page from './templates/template1/components/Page.tsx';
+import HomePage from './pages/HomePage.tsx';
 import './App.scss';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import RenderedResume from './pages/RenderedResume.tsx';
 
 function App() {
-
   return (
-    <div className='App'>
-      <Page />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={'/'} element={<HomePage />} />
+        <Route path={'/resume'} element={<RenderedResume />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

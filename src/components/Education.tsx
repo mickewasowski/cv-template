@@ -1,4 +1,4 @@
-import type { Education } from "./types/Types";
+import type { Education } from "../types/Types";
 
 interface IProps {
   educations: Education[];

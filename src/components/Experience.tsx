@@ -1,4 +1,4 @@
-import type { Experience } from "./types/Types";
+import type { Experience } from "../types/Types";
 
 interface IProps {
   experiences: Experience[];

@@ -1,4 +1,4 @@
-import { CertificateType, type Certificate } from "./types/Types";
+import { CertificateType, type Certificate } from "../types/Types";
 
 interface IProps {
   certificates: Certificate[];
