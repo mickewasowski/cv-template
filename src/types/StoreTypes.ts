@@ -8,6 +8,7 @@ export type Header = {
 };
 
 export type Education = {
+  id: number;
   start?: string;
   graduation: string;
   facility: string;
@@ -16,6 +17,7 @@ export type Education = {
 };
 
 export type Experience = {
+  id: number;
   start: string;
   end: string;
   employer: string;
@@ -35,6 +37,7 @@ export type Contacts = {
 };
 
 export type Certificates = {
+  id: string;
   type: CertificateType;
   issuer: string;
   dateOfIssue: string;
@@ -48,4 +51,17 @@ export type Languages = string[];
 
 export type Websites = string[];
 
-export type Template = string;
+export type Template = {
+  name: string;
+  primaryColor: string;
+};
+
+export type UIPageLayout = {
+  main: string[];
+  side: string[];
+};
+
+export type UI = {
+  pageLayout: UIPageLayout;
+  primaryColor: string;
+};
