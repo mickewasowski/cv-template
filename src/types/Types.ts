@@ -7,13 +7,13 @@ export type Education = {
 }
 
 export enum Diploma {
-  HighSchool,
-  Bachelors,
-  Masters,
-  Doctorate,
-  PostGraduate,
-  Certificate,
-  Other,
+  HighSchool = 'High School',
+  Bachelors = 'Bachelors',
+  Masters = 'Masters',
+  Doctorate = 'Doctorate',
+  PostGraduate = 'Post Graduate',
+  Certificate = 'Certificate',
+  Other = 'Other',
 }
 
 export type Experience = {
