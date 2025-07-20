@@ -1,0 +1,13 @@
+.ContactsForm {
+
+  &__form {
+    display: flex;
+    gap: 2rem;
+
+    div {
+
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
