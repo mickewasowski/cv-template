@@ -16,7 +16,7 @@ export const headerSlice = createSlice({
       state,
       action: PayloadAction<Partial<Header>>
     ) => {
-      return {...state, ...action};
+      return {...state, ...action.payload};
     },
   },
 });
