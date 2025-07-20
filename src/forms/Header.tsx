@@ -96,7 +96,7 @@ const HeaderForm = () => {
             )}
           </div>
           <div>
-            <label htmlFor="title">Initials</label>
+            <label htmlFor="initials">Initials</label>
             <Field
               id="initials"
               name="initials"
