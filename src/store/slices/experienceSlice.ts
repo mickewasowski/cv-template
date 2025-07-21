@@ -9,26 +9,28 @@ const initialState: ExperienceState = {
   entries: [],
 };
 
+let currentId = 1;
 export const experienceSlice = createSlice({
   name: "experience",
   initialState,
   reducers: {
-    addEntry: (
-      state,
-      action: PayloadAction<Partial<Experience>>,
-    ) => {
-      return { ...state, ...action.payload };
+    addEntry: (state, action: PayloadAction<Experience>) => {
+      const educationObject: Experience = { ...action.payload, id: currentId };
+      state.entries.push(educationObject);
+      currentId++;
     },
-
-    // TODO: rework this
-    // updateEntry: (
-    //   state,
-    //   action: PayloadAction<Partial<Education>>
-    // ) => {
-    //   return {...state, ...action};
-    // },
+    removeEntry: (state, action: PayloadAction<number>) => {
+      state.entries = state.entries.filter((x) => x.id !== action.payload);
+    },
+    updateEntry: (
+      state,
+      action: PayloadAction<Experience>
+    ) => {
+      const stateEntries = state.entries.filter((x) => x.id !== action.payload.id);
+      state.entries = [...stateEntries, action.payload];
+    },
   },
 });
 
-export const { addEntry } = experienceSlice.actions;
+export const { addEntry, updateEntry, removeEntry } = experienceSlice.actions;
 export default experienceSlice.reducer;

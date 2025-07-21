@@ -1,5 +1,6 @@
 import ContactsForm from "../forms/Contacts";
 import EducationSummary from "../forms/EducationSummary";
+import ExperienceSummary from "../forms/ExperienceSummary";
 import HeaderForm from "../forms/Header";
 
 interface IProps {}
@@ -15,6 +16,7 @@ const HomePage = ({}: IProps) => {
       <ContactsForm />
       <HeaderForm />
       <EducationSummary />
+      <ExperienceSummary />
     </div>
   );
 };

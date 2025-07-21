@@ -26,9 +26,9 @@ export type Experience = {
 }
 
 export enum ExperienceLocation {
-  Hybrid,
-  OnSite,
-  Remote
+  Hybrid = 'Hybrid',
+  OnSite = 'On Site',
+  Remote = 'Remote',
 }
 
 export enum LanguageLevel {
