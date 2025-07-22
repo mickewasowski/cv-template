@@ -49,7 +49,12 @@ export type Certificates = {
   url?: string;
 };
 
-export type Hobbies = string[];
+export type Hobby = {
+  id: number;
+  name: string;
+}
+
+export type Hobbies = Hobby[];
 
 export type Languages = string[];
 
