@@ -6,6 +6,7 @@ import HobbiesForm from "../forms/Hobbies";
 import LanguagesForm from "../forms/Languages";
 import SkillsForm from "../forms/Skills";
 import SummaryForm from "../forms/Summary";
+import WebsitesForm from "../forms/Websites";
 
 interface IProps {}
 
@@ -25,6 +26,7 @@ const HomePage = ({}: IProps) => {
       {/* <SkillsForm /> */}
       {/* <HobbiesForm /> */}
       <LanguagesForm />
+      <WebsitesForm />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { type Websites } from "../../types/StoreTypes";
+import { type Website, type Websites } from "../../types/StoreTypes";
 
 interface WebsitesState {
   entries: Websites;
@@ -9,18 +9,27 @@ const initialState: WebsitesState = {
   entries: [],
 };
 
+let id = 1;
 export const websitesSlice = createSlice({
   name: "websites",
   initialState,
   reducers: {
-    updateEntries: (
+    addEntry: (
       state,
-      action: PayloadAction<Websites>,
+      action: PayloadAction<Website>,
     ) => {
-      state.entries.push(...action.payload);
+      const newWebsite = {...action.payload, id: id};
+      state.entries.push(newWebsite);
+      id++;
+    },
+    removeEntry: (
+      state,
+      action: PayloadAction<number>,
+    ) => {
+      state.entries = state.entries.filter((x) => x.id !== action.payload);
     },
   },
 });
 
-export const { updateEntries } = websitesSlice.actions;
+export const { addEntry, removeEntry } = websitesSlice.actions;
 export default websitesSlice.reducer;

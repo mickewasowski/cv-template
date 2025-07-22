@@ -54,7 +54,17 @@ export type Hobbies = IdNamePair[];
 
 export type Languages = IdNamePair[];
 
-export type Websites = string[];
+export enum WebsiteType {
+  LinkedIn = 'LinkedIn',
+  Github = 'Github',
+  Other = 'Other'
+}
+
+export type Website = IdNamePair & {
+  type: WebsiteType;
+};
+
+export type Websites = Website[];
 
 export type Template = {
   name: string;
