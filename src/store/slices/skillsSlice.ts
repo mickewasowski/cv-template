@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { type Skills, type Skill } from "../../types/StoreTypes";
+import { type Skills, type IdNamePair } from "../../types/StoreTypes";
 
 interface SkillsState {
   entries: Skills;
@@ -14,7 +14,7 @@ export const skillsSlice = createSlice({
   name: "skills",
   initialState,
   reducers: {
-    addEntry: (state, action: PayloadAction<Skill>) => {
+    addEntry: (state, action: PayloadAction<IdNamePair>) => {
       const newSkill = {...action.payload, id: id};
       state.entries.push(newSkill);
       id++;

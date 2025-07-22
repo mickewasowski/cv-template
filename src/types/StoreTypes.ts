@@ -28,11 +28,12 @@ export type Experience = {
 
 export type Summary = string;
 
-export type Skill = {
+export type IdNamePair = {
   id: number;
   name: string;
 }
-export type Skills = Skill[];
+
+export type Skills = IdNamePair[];
 
 export type Contacts = {
   email: string;
@@ -49,14 +50,9 @@ export type Certificates = {
   url?: string;
 };
 
-export type Hobby = {
-  id: number;
-  name: string;
-}
+export type Hobbies = IdNamePair[];
 
-export type Hobbies = Hobby[];
-
-export type Languages = string[];
+export type Languages = IdNamePair[];
 
 export type Websites = string[];
 

@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { type Hobbies, type Hobby } from "../../types/StoreTypes";
+import { type Hobbies, type IdNamePair } from "../../types/StoreTypes";
 
 interface HobbiesState {
   entries: Hobbies;
@@ -16,7 +16,7 @@ export const hobbiesSlice = createSlice({
   reducers: {
     addEntry: (
       state,
-      action: PayloadAction<Hobby>,
+      action: PayloadAction<IdNamePair>,
     ) => {
       const newHobby = {...action.payload, id: id};
       state.entries.push(newHobby);

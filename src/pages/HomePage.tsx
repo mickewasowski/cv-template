@@ -3,6 +3,7 @@ import EducationSummary from "../forms/EducationSummary";
 import ExperienceSummary from "../forms/ExperienceSummary";
 import HeaderForm from "../forms/Header";
 import HobbiesForm from "../forms/Hobbies";
+import LanguagesForm from "../forms/Languages";
 import SkillsForm from "../forms/Skills";
 import SummaryForm from "../forms/Summary";
 
@@ -16,13 +17,14 @@ const HomePage = ({}: IProps) => {
 
   return (
     <div className="HomePage">
-      <ContactsForm />
-      <HeaderForm />
-      <EducationSummary />
-      <ExperienceSummary />
-      <SummaryForm />
-      <SkillsForm />
-      <HobbiesForm />
+      {/* <ContactsForm /> */}
+      {/* <HeaderForm /> */}
+      {/* <EducationSummary /> */}
+      {/* <ExperienceSummary /> */}
+      {/* <SummaryForm /> */}
+      {/* <SkillsForm /> */}
+      {/* <HobbiesForm /> */}
+      <LanguagesForm />
     </div>
   );
 };
