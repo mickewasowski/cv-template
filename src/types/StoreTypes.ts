@@ -28,7 +28,11 @@ export type Experience = {
 
 export type Summary = string;
 
-export type Skills = string[];
+export type Skill = {
+  id: number;
+  name: string;
+}
+export type Skills = Skill[];
 
 export type Contacts = {
   email: string;
