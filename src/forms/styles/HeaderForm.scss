@@ -1,4 +1,22 @@
 .HeaderForm {
+  h1 {
+    margin: 0;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+
+  &__form {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+
+    >div {
+      display: flex;
+      gap: 0.3rem;
+    }
+  }
+
   .hidden-file-upload {
     position: absolute;
     width: 1px;
@@ -6,7 +24,7 @@
     margin: -1px;
     padding: 0;
     overflow: hidden;
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
     border: 0;
   }
 }

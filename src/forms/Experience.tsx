@@ -6,6 +6,7 @@ import { type Experience } from "../types/StoreTypes";
 import { FaRegSave } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { ExperienceLocation } from "../types/Types";
+import "./styles/Experience.scss";
 
 interface IProps {
   id?: number;

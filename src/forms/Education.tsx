@@ -6,6 +6,7 @@ import { Diploma } from "../types/Types";
 import { type Education } from "../types/StoreTypes";
 import { FaRegSave } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import "./styles/Education.scss";
 
 interface IProps {
   id?: number;

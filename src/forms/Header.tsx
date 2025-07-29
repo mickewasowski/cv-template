@@ -5,6 +5,7 @@ import { type RootState } from "../store/store";
 import { useRef } from "react";
 import './styles/HeaderForm.scss';
 
+//TODO: render the image updload only if the chosen template supports images
 const HeaderForm = () => {
   const header = useSelector((state: RootState) => state.header);
   const dispatch = useDispatch();
