@@ -6,7 +6,9 @@ import HobbiesForm from "../forms/Hobbies";
 import LanguagesForm from "../forms/Languages";
 import SkillsForm from "../forms/Skills";
 import SummaryForm from "../forms/Summary";
+import CollapsibleFormWrapper from "../forms/utils/CollapsableWrapper";
 import WebsitesForm from "../forms/Websites";
+import "./styles/HomePage.scss";
 
 interface IProps {}
 
@@ -18,15 +20,39 @@ const HomePage = ({}: IProps) => {
 
   return (
     <div className="HomePage">
-      {/* <ContactsForm /> */}
-      {/* <HeaderForm /> */}
-      {/* <EducationSummary /> */}
-      {/* <ExperienceSummary /> */}
-      {/* <SummaryForm /> */}
-      {/* <SkillsForm /> */}
-      {/* <HobbiesForm /> */}
-      <LanguagesForm />
-      <WebsitesForm />
+      <div>
+        <h1>Fill in your information</h1>
+      </div>
+      <div className="HomePage__forms">
+        <CollapsibleFormWrapper open={true}>
+          <HeaderForm />
+        </CollapsibleFormWrapper>
+        <CollapsibleFormWrapper open={true}>
+          <ContactsForm />
+        </CollapsibleFormWrapper>
+        <CollapsibleFormWrapper open={true}>
+          <SummaryForm />
+        </CollapsibleFormWrapper>
+        <CollapsibleFormWrapper open={false}>
+          <EducationSummary />
+        </CollapsibleFormWrapper>
+        <CollapsibleFormWrapper open={false}>
+          <ExperienceSummary />
+        </CollapsibleFormWrapper>
+        <CollapsibleFormWrapper open={false}>
+          <SkillsForm />
+        </CollapsibleFormWrapper>
+        <CollapsibleFormWrapper open={false}>
+          <HobbiesForm />
+        </CollapsibleFormWrapper>
+        <CollapsibleFormWrapper open={false}>
+          <LanguagesForm />
+        </CollapsibleFormWrapper>
+        <CollapsibleFormWrapper open={false}>
+          <WebsitesForm />
+        </CollapsibleFormWrapper>
+      </div>
+      <button>See Resume Preview</button>
     </div>
   );
 };
