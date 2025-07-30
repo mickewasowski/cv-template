@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, type ReactNode } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
+import "./CollapsableWrapper.scss";
 
 interface IProps {
   open: boolean;
@@ -19,18 +20,14 @@ const CollapsibleFormWrapper = ({ open, children }: IProps) => {
   }, [isOpen]);
 
   return (
-    <div>
+    <div className="CollapsibleWrapper">
       <div
-        // ref={contentRef}
         style={{
-          // height: height,
-          // overflow: "hidden",
-          // transition: "height 0.3s ease",
           position: "relative",
         }}
       >
         <div style={{ position: "absolute", top: "2%", right: 0 }}>
-          <button onClick={() => setIsOpen(!isOpen)}>
+          <button className="collapse-btn" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
           </button>
         </div>

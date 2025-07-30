@@ -52,7 +52,7 @@ const HomePage = ({}: IProps) => {
           <WebsitesForm />
         </CollapsibleFormWrapper>
       </div>
-      <button>See Resume Preview</button>
+      <button className="HomePage__submit">See Resume Preview</button>
     </div>
   );
 };
