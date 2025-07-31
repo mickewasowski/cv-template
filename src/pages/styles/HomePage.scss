@@ -1,25 +1,24 @@
 .HomePage {
   background-color: var(--white);
   display: flex;
-  flex-direction: column;
-  padding: 0 5vw;
+  // flex-direction: column;
+  // padding: 0 5vw;
   height: 100%;
+
+  &__sidebar {
+    width: 20%;
+    height: 100%;
+  }
 
   &__forms {
     display: flex;
     flex-direction: column;
     background-color: var(--white);
-    border-radius: 3px;
-    padding: 1rem;
+    // border-radius: 3px;
+    // padding: 1rem;
     gap: 1rem;
-    max-width: 1400px;
-    height: 70%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    box-shadow: 10px 10px 56px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 10px 10px 56px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 56px 0px rgba(0, 0, 0, 0.75);
+    width: 65%;
+    height: 100%;
 
     input {
       background-color: var(--white);
@@ -107,14 +106,19 @@
     }
   }
 
-  &__submit {
-    width: 12rem;
-    height: 2rem;
-    background-color: var(--white);
-    border: 1px solid var(--dark-purple);
-    border-radius: 2px;
-    color: var(--dark-purple);
-    text-transform: uppercase;
-    margin: auto;
+  &__buttons-bar {
+    width: 15%;
+    height: 100%;
+
+    &__submit {
+      width: 12rem;
+      height: 2rem;
+      background-color: var(--white);
+      border: 1px solid var(--dark-purple);
+      border-radius: 2px;
+      color: var(--dark-purple);
+      text-transform: uppercase;
+      margin: auto;
+    }
   }
 }
