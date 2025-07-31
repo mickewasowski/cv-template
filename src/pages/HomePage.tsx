@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ContactsForm from "../forms/Contacts";
 import EducationSummary from "../forms/EducationSummary";
 import ExperienceSummary from "../forms/ExperienceSummary";
@@ -10,49 +11,112 @@ import CollapsibleFormWrapper from "../forms/utils/CollapsableWrapper";
 import WebsitesForm from "../forms/Websites";
 import "./styles/HomePage.scss";
 
-interface IProps {}
+enum FormData {
+  Header,
+  Contacts,
+  Summary,
+  Education,
+  Experience,
+  Skills,
+  Hobbies,
+  Languages,
+  Websites,
+}
 
-const HomePage = ({}: IProps) => {
+const HomePage = () => {
+  const [renderForm, setRenderForm] = useState<FormData>(FormData.Header);
   //TODO: have these
   //choose a template
   //forms for input + upload of image (optional depending on the template they choose)
   //next button => leads a page with already populated data
 
+  const renderDataForm = () => {
+    switch (renderForm) {
+      case FormData.Header: {
+        return <HeaderForm />;
+      }
+      case FormData.Contacts: {
+        return <ContactsForm />;
+      }
+      case FormData.Summary: {
+        return <SummaryForm />;
+      }
+      case FormData.Education: {
+        return <EducationSummary />;
+      }
+      case FormData.Experience: {
+        return <ExperienceSummary />;
+      }
+      case FormData.Skills: {
+        return <SkillsForm />;
+      }
+      case FormData.Hobbies: {
+        return <HobbiesForm />;
+      }
+      case FormData.Languages: {
+        return <LanguagesForm />;
+      }
+      case FormData.Websites: {
+        return <WebsitesForm />;
+      }
+    }
+  };
+
+  const handleNextForm = () => {
+    const enumValues = Object.values(FormData).filter(
+      (x) => typeof x === "number",
+    ) as number[];
+    const maxIndex = Math.max(...enumValues);
+    const nextState = renderForm + 1 > maxIndex ? renderForm : renderForm + 1;
+    setRenderForm(nextState as FormData);
+  };
+
+  const renderProgressBar = () => {
+    const formEnumKeyValues = Object.entries(FormData).filter(([key, value]) =>
+      isNaN(Number(key)),
+    );
+
+    return (
+      <>
+        {formEnumKeyValues.map(([name, value]) => {
+          const isActive = renderForm === value;
+          return (
+            <p
+              className={`HomePage__sidebar__progress-bar__entry ${isActive ? "HomePage__sidebar__progress-bar__entry--active" : ""}`}
+            >
+              {name}
+            </p>
+          );
+        })}
+      </>
+    );
+  };
+
   return (
     <div className="HomePage">
-      <div>
-        <h1>Fill in your information</h1>
+      <div className="HomePage__sidebar">
+        <div className="HomePage__sidebar__heading-wrapper">
+          <h1>Fill in your information</h1>
+        </div>
+        <div className="HomePage__sidebar__progress-bar">
+          {renderProgressBar()}
+        </div>
       </div>
-      <div className="HomePage__forms">
-        <CollapsibleFormWrapper open={true}>
-          <HeaderForm />
-        </CollapsibleFormWrapper>
-        <CollapsibleFormWrapper open={true}>
-          <ContactsForm />
-        </CollapsibleFormWrapper>
-        <CollapsibleFormWrapper open={true}>
-          <SummaryForm />
-        </CollapsibleFormWrapper>
-        <CollapsibleFormWrapper open={false}>
-          <EducationSummary />
-        </CollapsibleFormWrapper>
-        <CollapsibleFormWrapper open={false}>
-          <ExperienceSummary />
-        </CollapsibleFormWrapper>
-        <CollapsibleFormWrapper open={false}>
-          <SkillsForm />
-        </CollapsibleFormWrapper>
-        <CollapsibleFormWrapper open={false}>
-          <HobbiesForm />
-        </CollapsibleFormWrapper>
-        <CollapsibleFormWrapper open={false}>
-          <LanguagesForm />
-        </CollapsibleFormWrapper>
-        <CollapsibleFormWrapper open={false}>
-          <WebsitesForm />
-        </CollapsibleFormWrapper>
+      <div className="HomePage__forms">{renderDataForm()}</div>
+      <div className="HomePage__buttons-bar">
+        {renderForm === FormData.Websites ? (
+          <button className="HomePage__buttons-bar__submit">
+            See Resume Preview
+          </button>
+        ) : (
+          <button
+            className="HomePage__buttons-bar__next"
+            onClick={() => handleNextForm()}
+          >
+            Next
+          </button>
+        )}
       </div>
-      <button className="HomePage__submit">See Resume Preview</button>
     </div>
   );
 };
