@@ -74,10 +74,12 @@ const HomePage = () => {
 
     return (
       <>
-        {formEnumKeyValues.map(([name, value]) => {
+        {formEnumKeyValues.map(([name, value], index) => {
           const isActive = renderForm === value;
           return (
             <p
+              key={index}
+              data-text={index+1}
               className={`HomePage__sidebar__progress-bar__entry ${isActive ? "HomePage__sidebar__progress-bar__entry--active" : ""}`}
             >
               {name}
@@ -92,7 +94,7 @@ const HomePage = () => {
     <div className="HomePage">
       <div className="HomePage__sidebar">
         <div className="HomePage__sidebar__heading-wrapper">
-          <h1>Fill in your information</h1>
+          <h1>Resume</h1>
         </div>
         <div className="HomePage__sidebar__progress-bar">
           {renderProgressBar()}
@@ -102,7 +104,7 @@ const HomePage = () => {
       <div className="HomePage__buttons-bar">
         {renderForm === FormData.Websites ? (
           <button className="HomePage__buttons-bar__submit">
-            See Resume Preview
+            Preview
           </button>
         ) : (
           <button

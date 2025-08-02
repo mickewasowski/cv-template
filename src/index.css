@@ -16,6 +16,8 @@
   --very-light-blue: rgb(190, 240, 255);
   --dark-purple: rgb(25, 41, 70);
   --pastel-ligth-blue: rgb(63, 136, 152);
+  --copper: rgb(206, 88, 0);
+  --light-copper: rgb(250, 130, 10);
 
   color: var(--dark-purple);
 }
