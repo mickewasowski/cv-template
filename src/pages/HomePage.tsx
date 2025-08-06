@@ -7,7 +7,6 @@ import HobbiesForm from "../forms/Hobbies";
 import LanguagesForm from "../forms/Languages";
 import SkillsForm from "../forms/Skills";
 import SummaryForm from "../forms/Summary";
-import CollapsibleFormWrapper from "../forms/utils/CollapsableWrapper";
 import WebsitesForm from "../forms/Websites";
 import "./styles/HomePage.scss";
 import TemplateForm from "../forms/TemplateForm";

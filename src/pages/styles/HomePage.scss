@@ -71,6 +71,17 @@
     width: 60%;
     height: 100%;
 
+    div:first-child {
+      margin-top: 4rem;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      padding: 1rem;
+    }
+
     input {
       background-color: var(--white);
       border: 1px solid var(--dark-purple);
