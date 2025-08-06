@@ -10,8 +10,10 @@ import SummaryForm from "../forms/Summary";
 import CollapsibleFormWrapper from "../forms/utils/CollapsableWrapper";
 import WebsitesForm from "../forms/Websites";
 import "./styles/HomePage.scss";
+import TemplateForm from "../forms/TemplateForm";
 
 enum FormData {
+  Template,
   Header,
   Contacts,
   Summary,
@@ -24,10 +26,13 @@ enum FormData {
 }
 
 const HomePage = () => {
-  const [renderForm, setRenderForm] = useState<FormData>(FormData.Header);
+  const [renderForm, setRenderForm] = useState<FormData>(FormData.Template);
 
   const renderDataForm = () => {
     switch (renderForm) {
+      case FormData.Template: {
+        return <TemplateForm />;
+      }
       case FormData.Header: {
         return <HeaderForm />;
       }
@@ -58,17 +63,17 @@ const HomePage = () => {
     }
   };
 
-  const handleNextForm = () => {
+  const handleNextForm = (index: number | null = null) => {
     const enumValues = Object.values(FormData).filter(
       (x) => typeof x === "number",
     ) as number[];
     const maxIndex = Math.max(...enumValues);
-    const nextState = renderForm + 1 > maxIndex ? renderForm : renderForm + 1;
+    const nextState = index !== null ? index : (renderForm + 1 > maxIndex ? renderForm : renderForm + 1);
     setRenderForm(nextState as FormData);
   };
 
   const renderProgressBar = () => {
-    const formEnumKeyValues = Object.entries(FormData).filter(([key, value]) =>
+    const formEnumKeyValues = Object.entries(FormData).filter(([key]) =>
       isNaN(Number(key)),
     );
 
@@ -81,6 +86,7 @@ const HomePage = () => {
               key={index}
               data-text={index+1}
               className={`HomePage__sidebar__progress-bar__entry ${isActive ? "HomePage__sidebar__progress-bar__entry--active" : ""}`}
+              onClick={() => handleNextForm(index)}
             >
               {name}
             </p>
