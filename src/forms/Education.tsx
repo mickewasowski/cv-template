@@ -9,8 +9,8 @@ import { useEffect, useState } from "react";
 import "./styles/Education.scss";
 
 interface IProps {
-  id?: number;
-  closeEdit?: () => void;
+  id?: number | null;
+  closeEdit?: () => void | undefined;
 }
 
 //TODO: if id is undefined then don't try to find an entry
@@ -30,7 +30,7 @@ const EducationForm = ({ id, closeEdit }: IProps) => {
   const [localEntry, setLocalEntry] = useState(INITIAL_STATE);
 
   useEffect(() => {
-    if (id) {
+    if (id && entry) {
       setLocalEntry(entry);
     }
   }, [id]);
@@ -120,12 +120,15 @@ const EducationForm = ({ id, closeEdit }: IProps) => {
     );
   };
 
-  const handleSave = (e) => {
+  const handleSave = () => {
     if (!id) {
       dispatch(addEntry(localEntry));
       setLocalEntry(INITIAL_STATE);
     } else {
       dispatch(updateEntry(localEntry));
+    }
+
+    if (closeEdit !== undefined) {
       closeEdit();
     }
   };

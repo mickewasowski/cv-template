@@ -13,9 +13,10 @@
   --white: rgb(255, 255, 255);
   --blueish-white: rgb(245, 255, 255);
   --blue: rgb(0, 90, 205);
+  --blue-half-transparent: rgba(0, 90, 205, 0.5);
   --very-light-blue: rgb(190, 240, 255);
   --dark-purple: rgb(25, 41, 70);
-  --pastel-ligth-blue: rgb(63, 136, 152);
+  --pastel-light-blue: rgb(63, 136, 152);
   --copper: rgb(206, 88, 0);
   --light-copper: rgb(250, 130, 10);
 
