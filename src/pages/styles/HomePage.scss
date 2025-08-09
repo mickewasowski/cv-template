@@ -22,6 +22,10 @@
         text-transform: uppercase;
         font-size: 0.9rem;
 
+        &:hover {
+          cursor: pointer;
+        }
+
         &:before {
           position: absolute;
           left: 25%;
@@ -46,11 +50,11 @@
 
         &:after {
           position: absolute;
-          left: 25%;
+          left: 24.7%;
           top: 85%;
           content: '';
           width: 2px;
-          height: 1.6rem;
+          height: 1.55rem;
           background-color: var(--blueish-white);
         }
 
@@ -71,17 +75,23 @@
     width: calc(100% - 25rem);
     height: 100%;
 
-    .TemplateForm, .HeaderForm,
+    .HeaderForm,
     .ContactsForm, .SummaryForm,
     .EducationSummary, .ExperienceSummary,
     .SkillsForm, .HobbiesForm,
     .LanguagesForm, .WebsitesForm {
-      max-width: 100%;
+      margin-top: 10rem;
+      padding: 0 1rem;
+
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+      }
     }
 
     form {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 3rem;
       padding: 1rem;
     }
@@ -92,6 +102,8 @@
       border-radius: 2px;
       padding: 0 0.3rem;
       color: var(--dark-purple);
+      height: 2rem;
+      font-size: 1.3rem;
 
       &:focus {
         outline: none;
@@ -107,6 +119,7 @@
       border-radius: 0.3rem;
       text-transform: uppercase;
       padding: 0.1rem;
+      font-size: 1.3rem;
 
       &:hover {
         cursor: pointer;
@@ -137,8 +150,8 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       background-color: var(--white);
-      width: 1rem;
-      height: 1rem;
+      width: 2rem;
+      height: 2rem;
       position: relative;
 
       &:hover {
@@ -159,7 +172,7 @@
     }
 
     label {
-      font-size: 0.9rem;
+      font-size: 1.3rem;
       text-transform: capitalize;
       letter-spacing: 1px;
     }
@@ -175,6 +188,7 @@
   &__buttons-bar {
     width: 10rem;
     height: 100%;
+    margin-left: auto;
     display: flex;
     justify-content: center;
     align-items: start;
