@@ -33,7 +33,7 @@ const EducationForm = ({ id, closeEdit }: IProps) => {
     if (id) {
       setLocalEntry(entry);
     }
-  }, []);
+  }, [id]);
 
   const diplomaValues = Object.values(Diploma);
 
@@ -52,7 +52,7 @@ const EducationForm = ({ id, closeEdit }: IProps) => {
   }: Education) => {
     // TODO: add placeholders for each input field
     return (
-      <div>
+      <>
         <div>
           {/* TODO: validate this to allow only month and year */}
           <label htmlFor="start">Start</label>
@@ -116,13 +116,14 @@ const EducationForm = ({ id, closeEdit }: IProps) => {
             ))}
           </Field>
         </div>
-      </div>
+      </>
     );
   };
 
   const handleSave = (e) => {
     if (!id) {
       dispatch(addEntry(localEntry));
+      setLocalEntry(INITIAL_STATE);
     } else {
       dispatch(updateEntry(localEntry));
       closeEdit();

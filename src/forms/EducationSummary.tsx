@@ -12,7 +12,6 @@ const EducationSummary = () => {
   const dispatch = useDispatch();
   const { entries } = useSelector((state: RootState) => state.education);
   const [edit, setEdit] = useState<number | null>(null);
-  const [openForm, setOpenForm] = useState(false);
 
   const renderEntries = () => {
     return (
@@ -52,18 +51,12 @@ const EducationSummary = () => {
     );
   };
 
-  const renderAddButton = () => {
-      return <button onClick={() => setOpenForm(!openForm)}>
-        {!openForm ? <CiCirclePlus /> : <IoClose />}
-      </button>;
-  };
-
   return (
     <div className="EducationSummary">
+      {(entries.length === 0 || edit) && (
+        <EducationForm id={edit} closeEdit={() => setEdit(null)}/>
+      )}
       {renderEntries()}
-      {edit && <EducationForm id={edit} closeEdit={() => setEdit(null)}/>}
-      {(!entries.length || openForm) && <EducationForm />}
-      {renderAddButton()}
     </div>
   );
 };
