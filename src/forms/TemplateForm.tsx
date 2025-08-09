@@ -1,7 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import { useState } from "react";
 import { HexColorPicker } from "react-colorful";
+import "./styles/TemplateForm.scss";
+import { FreeMode, Navigation, Pagination } from "swiper/modules";
 
 const IMAGE_RATIO = 1.41;
 const TemplateForm = () => {
@@ -10,48 +14,78 @@ const TemplateForm = () => {
   //each slide should have a scale 1.5 or 2 on hover
   //on click it should have a border (marked selected) and update the state
 
-  const [color, setColor] = useState('fff');
+  const [color, setColor] = useState('#086dfb');
 
   return (
     <div className="TemplateForm">
-      <div>
+      <div className="TemplateForm__heading">
         <h1>Choose a template</h1>
       </div>
       <Swiper
-        spaceBetween={10}
+        className="TemplateForm__swiper"
+        spaceBetween={20}
         direction="horizontal"
-        width={90}
-        slidesPerView={"auto"}
+        slidesPerView={'auto'}
+        navigation={true}
+        pagination={{
+          dynamicBullets: true,
+          clickable: true,
+        }}
+        modules={[Navigation, Pagination]}
       >
-        <SwiperSlide style={{width: '100px', height:'141px'}}>
-          <div style={{ display: "block", width: "100px", height: "141px" }}>
-            <img src={'/images/cv-thumbnails/basic-1.jpg'} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
+        <SwiperSlide>
+          <div>
+            <img src={'/images/cv-thumbnails/basic-1.jpg'} />
           </div>
         </SwiperSlide>
-        <SwiperSlide style={{width: '100px', height:'141px'}}>
-          <div style={{ display: "block", width: "100px", height: "141px" }}>
-            <img src={'/images/cv-thumbnails/basic-3.jpg'} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
+        <SwiperSlide>
+          <div>
+            <img src={'/images/cv-thumbnails/basic-3.jpg'} />
           </div>
         </SwiperSlide>
-        <SwiperSlide style={{width: '100px', height:'141px'}}>
-          <div style={{ display: "block", width: "100px", height: "141px" }}>
-            <img src={'/images/cv-thumbnails/nice-1.jpg'} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
+        <SwiperSlide>
+          <div>
+            <img src={'/images/cv-thumbnails/nice-1.jpg'} />
           </div>
         </SwiperSlide>
-        <SwiperSlide style={{width: '100px', height:'141px'}}>
-          <div style={{ display: "block", width: "100px", height: "141px" }}>
-            <img src={'/images/cv-thumbnails/nice-3.jpg'} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
+        <SwiperSlide>
+          <div>
+            <img src={'/images/cv-thumbnails/nice-3.jpg'} />
           </div>
         </SwiperSlide>
-        <SwiperSlide style={{width: '100px', height:'141px'}}>
-          <div style={{ display: "block", width: "100px", height: "141px" }}>
-            <img src={'/images/cv-thumbnails/nice-9.jpg'} style={{width: '100%', height: '100%', objectFit: 'contain'}} />
+        <SwiperSlide>
+          <div>
+            <img src={'/images/cv-thumbnails/nice-9.jpg'} />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img src={'/images/cv-thumbnails/basic-1.jpg'} />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img src={'/images/cv-thumbnails/basic-1.jpg'} />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img src={'/images/cv-thumbnails/basic-1.jpg'} />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img src={'/images/cv-thumbnails/basic-1.jpg'}/>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <img src={'/images/cv-thumbnails/basic-1.jpg'}/>
           </div>
         </SwiperSlide>
       </Swiper>
-      <div>
+      <div className="TemplateForm__color-picker">
         <h3>Pick accent color:</h3>
-
         <HexColorPicker color={color} onChange={setColor} />
       </div>
     </div>
