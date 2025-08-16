@@ -69,6 +69,18 @@ const HeaderForm = () => {
             />
           </div>
           <div>
+            <label htmlFor="summary">Description about me</label>
+            <Field
+              id="summary"
+              name="summary"
+              type="text"
+              placeholder="Young and driven..."
+              onChange={handleChange}
+              value={header.summary}
+              autoComplete="off"
+            />
+          </div>
+          <div>
             <label htmlFor="image">Image upload</label>
             <Field
               ref={fileInputRef}

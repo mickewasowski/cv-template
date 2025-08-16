@@ -8,7 +8,6 @@ import headerReducer from './slices/headerSlice';
 import hobbiesReducer from './slices/hobbiesSlice';
 import languagesReducer from './slices/languagesSlice';
 import skillsReducer from './slices/skillsSlice';
-import summaryReducer from './slices/summarySlice';
 import templateReducer from './slices/templateSlice';
 import websitesReducer from './slices/websitesSlice';
 import uiReducer from './slices/uiSlice';
@@ -23,7 +22,6 @@ export const store = configureStore({
     hobbies: hobbiesReducer,
     languages: languagesReducer,
     skills: skillsReducer,
-    summary: summaryReducer,
     template: templateReducer,
     websites: websitesReducer,
     ui: uiReducer,

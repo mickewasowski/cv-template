@@ -6,7 +6,6 @@ import HeaderForm from "../forms/Header";
 import HobbiesForm from "../forms/Hobbies";
 import LanguagesForm from "../forms/Languages";
 import SkillsForm from "../forms/Skills";
-import SummaryForm from "../forms/Summary";
 import WebsitesForm from "../forms/Websites";
 import "./styles/HomePage.scss";
 import TemplateForm from "../forms/TemplateForm";
@@ -15,7 +14,6 @@ enum FormData {
   Template,
   Header,
   Contacts,
-  Summary,
   Education,
   Experience,
   Skills,
@@ -37,9 +35,6 @@ const HomePage = () => {
       }
       case FormData.Contacts: {
         return <ContactsForm />;
-      }
-      case FormData.Summary: {
-        return <SummaryForm />;
       }
       case FormData.Education: {
         return <EducationSummary />;

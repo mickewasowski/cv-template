@@ -4,6 +4,7 @@ import { type Header } from "../../types/StoreTypes";
 const initialState: Header = {
   name: "",
   title: "",
+  summary: "",
   image: "",
   initials: false,
 };

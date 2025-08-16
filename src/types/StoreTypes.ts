@@ -3,6 +3,7 @@ import type { CertificateType, Diploma, ExperienceLocation } from "./Types";
 export type Header = {
   name: string;
   title: string;
+  summary: string;
   image?: string;
   initials?: boolean; //if the user wants initials or not
 };
@@ -25,8 +26,6 @@ export type Experience = {
   location: ExperienceLocation;
   description: string;
 };
-
-export type Summary = string;
 
 export type IdNamePair = {
   id: number;
