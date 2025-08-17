@@ -9,6 +9,7 @@ import SkillsForm from "../forms/Skills";
 import WebsitesForm from "../forms/Websites";
 import "./styles/HomePage.scss";
 import TemplateForm from "../forms/TemplateForm";
+import { useNavigate } from "react-router-dom";
 
 enum FormData {
   Template,
@@ -24,6 +25,7 @@ enum FormData {
 
 const HomePage = () => {
   const [renderForm, setRenderForm] = useState<FormData>(FormData.Template);
+  const navigate = useNavigate();
 
   const renderDataForm = () => {
     switch (renderForm) {
@@ -90,6 +92,10 @@ const HomePage = () => {
     );
   };
 
+  const navigateToPreview = () => {
+    navigate('/resume');
+  };
+
   return (
     <div className="HomePage">
       <div className="HomePage__sidebar">
@@ -103,7 +109,7 @@ const HomePage = () => {
       <div className="HomePage__forms">{renderDataForm()}</div>
       <div className="HomePage__buttons-bar">
         {renderForm === FormData.Websites ? (
-          <button className="HomePage__buttons-bar__submit">
+          <button className="HomePage__buttons-bar__submit" onClick={navigateToPreview}>
             Preview
           </button>
         ) : (
