@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateEntry } from "../store/slices/headerSlice";
 import { type RootState } from "../store/store";
 import { useRef } from "react";
-import './styles/HeaderForm.scss';
+import "./styles/HeaderForm.scss";
 
 //TODO: render the image updload only if the chosen template supports images
 const HeaderForm = () => {
@@ -80,44 +80,46 @@ const HeaderForm = () => {
               autoComplete="off"
             />
           </div>
-          <div>
-            <label htmlFor="image">Image upload</label>
-            <Field
-              ref={fileInputRef}
-              id="image"
-              name="image"
-              type="file"
-              onChange={handleChange}
-              accept="image/*"
-              autoComplete="off"
-              className="hidden-file-upload"
-            />
-            <button
-              type="button"
-              onClick={() => fileInputRef.current?.click()}
-              className="file-change-btn"
-            >
-              {header.image ? "Change" : "Upload"}
-            </button>
-            {header.image && (
-              <img
-                src={header.image}
-                alt="Uploaded image"
-                width={100}
-                height={100}
+          <div className="HeaderForm__form__image-initials">
+            <div>
+              <label htmlFor="image">Image upload</label>
+              <Field
+                ref={fileInputRef}
+                id="image"
+                name="image"
+                type="file"
+                onChange={handleChange}
+                accept="image/*"
+                autoComplete="off"
+                className="hidden-file-upload"
               />
-            )}
-          </div>
-          <div>
-            <label htmlFor="initials">Initials</label>
-            <Field
-              id="initials"
-              name="initials"
-              type="checkbox"
-              onChange={handleChange}
-              checked={header.initials}
-              autoComplete="off"
-            />
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="file-change-btn"
+              >
+                {header.image ? "Change" : "Upload"}
+              </button>
+              {header.image && (
+                <img
+                  src={header.image}
+                  alt="Uploaded image"
+                  width={100}
+                  height={100}
+                />
+              )}
+            </div>
+            <div>
+              <label htmlFor="initials">Initials</label>
+              <Field
+                id="initials"
+                name="initials"
+                type="checkbox"
+                onChange={handleChange}
+                checked={header.initials}
+                autoComplete="off"
+              />
+            </div>
           </div>
         </Form>
       </Formik>
