@@ -5,14 +5,18 @@
 
     >div {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 1rem;
 
       >div {
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
-        gap: 0.3rem;
+        gap: 1rem;
+
+        input {
+          width: 70%;
+          max-width: 23rem;
+        }
       }
     }
 

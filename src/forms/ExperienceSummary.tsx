@@ -6,13 +6,13 @@ import { useState } from "react";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { CiCirclePlus } from "react-icons/ci";
-import { IoClose } from "react-icons/io5";
+import "./styles/ExperienceSummary.scss";
 
 const ExperienceSummary = () => {
   const dispatch = useDispatch();
   const { entries } = useSelector((state: RootState) => state.experience);
   const [edit, setEdit] = useState<number | null>(null);
-  const [openForm, setOpenForm] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const renderEntries = () => {
     return (
@@ -21,33 +21,35 @@ const ExperienceSummary = () => {
           return (
             <div className="ExperienceSummary__entries__entry" key={i}>
               <div className="ExperienceSummary__entries__entry__id">
-                <p>{x.id}</p>
+                <p>{i + 1}</p>
               </div>
               <div className="EducationSummary__entries__entry__data">
                 <h2>
                   {x.employer} - {x.title}
                 </h2>
-                <p>
-                  {x.location}
-                </p>
-                <p>
-                  {x.description}
-                </p>
+                <p>{x.location}</p>
+                <p>{x.description}</p>
                 <p>
                   {x.start} - {x.end}
                 </p>
               </div>
               <div className="ExperienceSummary__entries__entry__buttons">
-                <button id="edit" onClick={(e) => {
-                  e.preventDefault();
-                  setEdit(x.id);
-                }}>
+                <button
+                  id="edit"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setEdit(x.id);
+                  }}
+                >
                   <MdOutlineModeEditOutline />
                 </button>
-                <button id="delete" onClick={(e) => {
-                  e.preventDefault();
-                  dispatch(removeEntry(x.id));
-                }}>
+                <button
+                  id="delete"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    dispatch(removeEntry(x.id));
+                  }}
+                >
                   <MdOutlineDeleteOutline />
                 </button>
               </div>
@@ -58,18 +60,25 @@ const ExperienceSummary = () => {
     );
   };
 
-  const renderAddButton = () => {
-      return <button onClick={() => setOpenForm(!openForm)}>
-        {!openForm ? <CiCirclePlus /> : <IoClose />}
-      </button>;
+  const handleCloseForm = () => {
+    setOpen(false);
+    setEdit(null);
   };
 
   return (
     <div className="ExperienceSummary">
+      {(entries.length === 0 || edit || open) && (
+        <ExperienceForm id={edit} closeEdit={handleCloseForm} />
+      )}
+      {!open && entries.length !== 0 && (
+        <button
+          className="ExperienceSummary__add-btn"
+          onClick={() => setOpen(true)}
+        >
+          <CiCirclePlus />
+        </button>
+      )}
       {renderEntries()}
-      {edit && <ExperienceForm id={edit} closeEdit={() => setEdit(null)}/>}
-      {(!entries.length || openForm) && <ExperienceForm />}
-      {renderAddButton()}
     </div>
   );
 };

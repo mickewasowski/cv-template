@@ -9,7 +9,7 @@ import { ExperienceLocation } from "../types/Types";
 import "./styles/Experience.scss";
 
 interface IProps {
-  id?: number;
+  id?: number | null;
   closeEdit?: () => void;
 }
 
@@ -31,7 +31,7 @@ const ExperienceForm = ({ id, closeEdit }: IProps) => {
   const [localEntry, setLocalEntry] = useState(INITIAL_STATE);
 
   useEffect(() => {
-    if (id) {
+    if (id && entry) {
       setLocalEntry(entry);
     }
   }, []);
