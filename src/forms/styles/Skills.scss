@@ -1,0 +1,32 @@
+.SkillsForm {
+  &__form {
+    >div {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+
+  &__entries {
+    display: flex;
+
+    &__entry {
+      display: flex;
+      flex-wrap: wrap;
+      height: 3rem;
+      min-width: 10rem;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--dark-purple);
+      border-radius: 7px;
+      margin-top: 2rem;
+
+      p {
+        margin: 0.5rem;
+      }
+
+      button {
+        border: none;
+      }
+    }
+  }
+}
