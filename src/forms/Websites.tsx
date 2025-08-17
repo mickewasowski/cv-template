@@ -8,6 +8,7 @@ import { CiLinkedin } from "react-icons/ci";
 import { FaGithub } from "react-icons/fa";
 import { TbWorldWww } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
+import "./styles/Websites.scss";
 
 const INITIAL_STATE: Website = {
   id: -1,
@@ -44,7 +45,24 @@ const WebsitesForm = () => {
   const renderFormFields = ({ name, type }: Website) => {
     // TODO: add placeholders for each input field
     return (
-      <div>
+      <>
+        <div>
+          <label htmlFor="type">Type</label>
+          <Field
+            id="type"
+            name="type"
+            onChange={handleChange}
+            as="select"
+            autoComplete="off"
+          >
+            <option value={type}>{type}</option>
+            {websiteTypesValues.map((x, i) => (
+              <option key={i} value={x}>
+                {x}
+              </option>
+            ))}
+          </Field>
+        </div>
         <div>
           {/* TODO: validate this to allow only month and year */}
           <label htmlFor="name">Url</label>
@@ -55,28 +73,10 @@ const WebsitesForm = () => {
             onChange={handleChange}
             value={name}
             autoComplete="off"
+            placeholder={"www.linkedin.com/myuser"}
           />
         </div>
-        <div>
-          <div>
-            <label htmlFor="type">Type</label>
-            <Field
-              id="type"
-              name="type"
-              onChange={handleChange}
-              as="select"
-              autoComplete="off"
-            >
-              <option value={type}>{type}</option>
-              {websiteTypesValues.map((x, i) => (
-                <option key={i} value={x}>
-                  {x}
-                </option>
-              ))}
-            </Field>
-          </div>
-        </div>
-      </div>
+      </>
     );
   };
 

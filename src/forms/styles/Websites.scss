@@ -1,0 +1,28 @@
+.WebsitesForm {
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    >div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      input {
+        width: 70%;
+      }
+
+      select {
+        min-width: 15rem;
+        text-align: center;
+      }
+    }
+
+    button {
+      width: 5rem;
+      margin: auto;
+      grid-column: 1 / -1;
+    }
+  }
+}

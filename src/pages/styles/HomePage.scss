@@ -50,7 +50,7 @@
           position: absolute;
           left: 24.7%;
           top: 85%;
-          content: '';
+          content: "";
           width: 2px;
           height: 1.55rem;
           background-color: var(--blueish-white);
@@ -75,9 +75,12 @@
 
     .HeaderForm,
     .ContactsForm,
-    .EducationSummary, .ExperienceSummary,
-    .SkillsForm, .HobbiesForm,
-    .LanguagesForm, .WebsitesForm {
+    .EducationSummary,
+    .ExperienceSummary,
+    .SkillsForm,
+    .HobbiesForm,
+    .LanguagesForm,
+    .WebsitesForm {
       margin-top: 3rem;
       padding: 0 1rem;
 
@@ -85,6 +88,11 @@
         text-align: center;
         font-size: 2.5rem;
       }
+    }
+
+    form {
+      max-width: 50rem;
+      margin: auto;
     }
 
     input {

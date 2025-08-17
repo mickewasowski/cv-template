@@ -110,7 +110,7 @@ const HeaderForm = () => {
               )}
             </div>
             <div>
-              <label htmlFor="initials">Initials</label>
+              <label htmlFor="initials">Show Name Initials</label>
               <Field
                 id="initials"
                 name="initials"
