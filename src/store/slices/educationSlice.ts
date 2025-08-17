@@ -27,8 +27,8 @@ export const educationSlice = createSlice({
       state,
       action: PayloadAction<Education>
     ) => {
-      const stateEntries = state.entries.filter((x) => x.id !== action.payload.id);
-      state.entries = [...stateEntries, action.payload];
+      const index = state.entries.findIndex((x) => x.id === action.payload.id);
+      state.entries[index] = {...action.payload};
     },
   },
 });

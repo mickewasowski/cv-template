@@ -136,10 +136,14 @@ const ExperienceForm = ({ id, closeEdit }: IProps) => {
   const handleSave = (e) => {
     if (!id) {
       dispatch(addEntry(localEntry));
+      setLocalEntry(INITIAL_STATE);
     } else {
       dispatch(updateEntry(localEntry));
-      closeEdit();
    }
+
+    if (closeEdit !== undefined) {
+      closeEdit();
+    }
   };
 
   return (
