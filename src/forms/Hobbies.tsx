@@ -13,6 +13,9 @@ const HobbiesForm = () => {
   const [input, setInput] = useState("");
 
   const handleSubmit = () => {
+    if (input.length === 0) {
+      return;
+    }
     dispatch(addEntry({ id: -1, name: input }));
     setInput("");
   };
@@ -48,6 +51,7 @@ const HobbiesForm = () => {
               onChange={(e) => handleChange(e)}
               value={input}
               autoComplete="off"
+              placeholder={"Hiking"}
             />
             <button type="submit" onClick={() => handleSubmit()}>
               <CiCirclePlus />

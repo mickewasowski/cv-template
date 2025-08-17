@@ -13,6 +13,9 @@ const SkillsForm = () => {
   const [input, setInput] = useState("");
 
   const handleSubmit = () => {
+    if (input.length === 0) {
+      return;
+    }
     dispatch(addEntry({ id: -1, name: input }));
     setInput("");
   };
