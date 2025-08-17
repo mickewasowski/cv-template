@@ -89,7 +89,7 @@ const EducationForm = ({ id, closeEdit }: IProps) => {
           />
         </div>
         <div>
-          <label htmlFor="city">Institution Location</label>
+          <label htmlFor="city">Location</label>
           <Field
             id="city"
             name="city"
@@ -145,9 +145,11 @@ const EducationForm = ({ id, closeEdit }: IProps) => {
       >
         <Form className="EducationForm__form">
           {renderFormFields(localEntry)}
-          <button type="submit">
-            Save <FaRegSave />
-          </button>
+          <div className="EducationForm__form__save">
+            <button type="submit">
+              Save <FaRegSave />
+            </button>
+          </div>
         </Form>
       </Formik>
     </div>

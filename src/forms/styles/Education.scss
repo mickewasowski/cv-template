@@ -1,19 +1,31 @@
 .EducationForm {
   &__form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 
     >div {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+
+      input {
+        width: 70%;
+        max-width: 23rem;
+      }
     }
 
-    button {
-      width: 5rem;
-      height: 2rem;
-      margin: auto;
-      margin-top: 2rem;
+    &__save {
+      grid-column: 1 / -1;
+
+      button {
+        width: 5rem;
+        height: 2rem;
+        margin: auto;
+        margin-top: 2rem;
+      }
     }
   }
 }
