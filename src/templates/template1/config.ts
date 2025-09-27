@@ -1,6 +1,6 @@
 import { TemplateType } from "../Types";
 
-export const config = {
+export default {
   type: TemplateType.Single,
   primaryColor: "#fff",
   image: false,

@@ -1,12 +1,13 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { type Header } from "../../types/StoreTypes";
 
+//TODO: revert the default state to empty
 const initialState: Header = {
-  name: "",
-  title: "",
+  name: "John Doe",
+  title: "Frontend Developer",
   summary: "",
   image: "",
-  initials: false,
+  initials: true,
 };
 
 export const headerSlice = createSlice({
