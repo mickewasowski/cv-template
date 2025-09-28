@@ -8,4 +8,5 @@ export type TemplateConfig = {
   primaryColor: string;
   image: boolean;
   initials: boolean;
-}
+  summaryInHeader: boolean;
+};

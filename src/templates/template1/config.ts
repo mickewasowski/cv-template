@@ -5,4 +5,5 @@ export default {
   primaryColor: "#fff",
   image: false,
   initials: true,
+  summaryInHeader: false,
 };

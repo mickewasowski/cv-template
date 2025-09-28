@@ -4,11 +4,9 @@ import { addEntry, removeEntry } from "../store/slices/websitesSlice";
 import { type RootState } from "../store/store";
 import { type Website, WebsiteType } from "../types/StoreTypes";
 import { useState } from "react";
-import { CiLinkedin } from "react-icons/ci";
-import { FaGithub } from "react-icons/fa";
-import { TbWorldWww } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
 import "./styles/Websites.scss";
+import { renderIcon } from "../Utils";
 
 const INITIAL_STATE: Website = {
   id: -1,
@@ -26,20 +24,6 @@ const WebsitesForm = () => {
     e.preventDefault();
     const { name, value } = e.target;
     setLocalEntry({ ...localEntry, [name]: value });
-  };
-
-  const renderIcon = (x: WebsiteType) => {
-    switch (x) {
-      case WebsiteType.LinkedIn: {
-        return <CiLinkedin />;
-      }
-      case WebsiteType.Github: {
-        return <FaGithub />;
-      }
-      default: {
-        return <TbWorldWww />;
-      }
-    }
   };
 
   const renderFormFields = ({ name, type }: Website) => {
@@ -81,10 +65,12 @@ const WebsitesForm = () => {
   };
 
   const renderEntries = ({ id, name, type }: Website, index: number) => {
+    const Icon = renderIcon(type);
+
     return (
       <div key={index}>
         <div>
-          {renderIcon(type)}
+          <Icon />
           <p>{name}</p>
         </div>
         <div>
